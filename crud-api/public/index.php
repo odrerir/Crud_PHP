@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $uri = strtok($_SERVER['REQUEST_URI'], '?');
 
 match ($uri) {
-    '/api/users' => require __DIR__ . '/../src/api.php',
+    '/api/users', '/items' => require __DIR__ . '/../src/api.php',
     '/docs' => serveView(__DIR__ . '/../views/docs.html'),
     '/openapi.json' => serveView(__DIR__ . '/../openapi.json'),
     default => notFound(),
