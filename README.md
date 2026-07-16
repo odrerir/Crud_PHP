@@ -9,8 +9,8 @@ Projeto CRUD completo com back-end em PHP e front-end em Vite + JavaScript.
 
 ## Tecnologias
 
-- PHP 8.3 / FrankenPHP
-- Nginx (front-end estático)
+- PHP 8.3 / FrankenPHP para o backend
+- Nginx para servir o front-end estático
 - Vite
 - Axios
 - HTML, CSS e JavaScript puro
@@ -20,7 +20,7 @@ Projeto CRUD completo com back-end em PHP e front-end em Vite + JavaScript.
 
 - `crud-api/`
   - `Dockerfile`: imagem PHP/FrankenPHP para servir a API.
-  - `compose.yaml`: serviço `nginx` mapeando porta `8000`.
+  - `compose.yaml`: define o serviço backend a partir do Dockerfile e expõe a porta `8000`.
   - `config/config.php`: configuração do arquivo de dados e origens permitidas.
   - `data/data.json`: armazenamento dos usuários.
   - `public/index.php`: roteador básico da API.
@@ -28,7 +28,7 @@ Projeto CRUD completo com back-end em PHP e front-end em Vite + JavaScript.
 
 - `frontend/`
   - `Dockerfile`: copia `dist/` para servir com Nginx.
-  - `compose.yaml`: serviço `frontend-nginx` mapeando porta `8080`.
+  - `compose.yaml`: define o serviço frontend Nginx mapeando porta `8080`.
   - `package.json`: dependências do Vite e Axios.
   - `src/`: código do app e dos helpers de API/dom.
 
@@ -40,7 +40,7 @@ No diretório `crud-api/`:
 
 ```bash
 cd crud-api
-docker compose up --build
+docker compose up -d --build
 ```
 
 A API ficará disponível em:
@@ -55,7 +55,7 @@ No diretório `frontend/`:
 cd frontend
 npm install
 npm run build
-docker compose up --build
+docker compose up -d --build
 ```
 
 A interface estará disponível em:

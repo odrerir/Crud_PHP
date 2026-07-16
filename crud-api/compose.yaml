@@ -1,6 +1,6 @@
 services:
-  nginx:
-    container_name: nginx
+  backend:
+    container_name: crud-api
     build: .
     ports:
       - "8000:8000"
